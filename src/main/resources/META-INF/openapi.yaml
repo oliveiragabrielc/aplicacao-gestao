@@ -1,0 +1,120 @@
+openapi: 3.0.3
+info:
+  title: API de Gestão de Registros
+  description: API para gerenciar registros e suas parcelas.
+  version: 1.0.0
+paths:
+  /registro/listarTodos:
+    get:
+      summary: Lista todos os registros
+      description: Retorna uma lista de todos os registros cadastrados com suas parcelas associadas.
+      responses:
+        "200":
+          description: Lista de registros retornada com sucesso.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RespostaListarTodosProdutos"
+  /registro/recuperarRegistro/{id}:
+    get:
+      summary: Recupera um registro específico
+      description: Recupera os detalhes de um registro pelo seu ID.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int32
+          description: ID do registro a ser recuperado.
+      responses:
+        "200":
+          description: Registro recuperado com sucesso.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RegistroDto"
+        "404":
+          description: Registro não encontrado.
+  /registro/alterar:
+    put:
+      summary: Altera um registro existente
+      description: Atualiza os dados de um registro existente.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RegistroDto"
+      responses:
+        "200":
+          description: Registro atualizado com sucesso.
+        "404":
+          description: Registro não encontrado.
+  /registro/adicionar:
+    post:
+      summary: Adiciona um novo registro
+      description: Cria um novo registro com os dados fornecidos.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RegistroDto"
+      responses:
+        "201":
+          description: Registro criado com sucesso.
+        "400":
+          description: Dados inválidos fornecidos na requisição.
+components:
+  schemas:
+    LocalDate:
+      type: string
+      format: date
+      example: 2025-01-26
+    ParcelaDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          example: 1
+          description: Identificador único da parcela.
+        valorParcela:
+          type: number
+          format: double
+          example: 100.00
+          description: Valor da parcela.
+        totalParcelas:
+          type: integer
+          format: int32
+          example: 5
+          description: Quantidade total de parcelas.
+        numeroParcela:
+          type: integer
+          format: int32
+          example: 1
+          description: Número da parcela atual.
+    RegistroDto:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          example: 1
+          description: Identificador único do registro.
+        nome:
+          type: string
+          example: "Compra de Exemplo"
+          description: Nome associado ao registro.
+        dataRegistro:
+          $ref: "#/components/schemas/LocalDate"
+        parcela:
+          $ref: "#/components/schemas/ParcelaDto"
+    RespostaListarTodosProdutos:
+      type: object
+      properties:
+        registros:
+          type: array
+          items:
+            $ref: "#/components/schemas/RegistroDto"
