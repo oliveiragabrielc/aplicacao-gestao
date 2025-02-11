@@ -1,4 +1,4 @@
-package br.com.casodeuso.crudregistro;
+package br.com.gestao.casodeuso.crudregistro;
 
 import java.util.List;
 

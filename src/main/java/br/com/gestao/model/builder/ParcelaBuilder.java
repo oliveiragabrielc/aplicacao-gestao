@@ -1,6 +1,6 @@
 package br.com.gestao.model.builder;
 
-import br.com.casodeuso.crudregistro.ParcelaDto;
+import br.com.gestao.casodeuso.crudregistro.ParcelaDto;
 import br.com.gestao.model.Parcela;
 
 public class ParcelaBuilder {

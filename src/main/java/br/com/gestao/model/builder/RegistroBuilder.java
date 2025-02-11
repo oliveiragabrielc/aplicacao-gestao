@@ -2,8 +2,8 @@ package br.com.gestao.model.builder;
 
 import java.time.LocalDate;
 
-import br.com.casodeuso.crudregistro.ParcelaDto;
-import br.com.casodeuso.crudregistro.RegistroDto;
+import br.com.gestao.casodeuso.crudregistro.ParcelaDto;
+import br.com.gestao.casodeuso.crudregistro.RegistroDto;
 import br.com.gestao.model.Parcela;
 import br.com.gestao.model.Registro;
 

@@ -1,6 +1,6 @@
-/home/gabriel/aplicacao-gestao/backend/src/main/java/br/com/casodeuso/crudregistro/ParcelaDto.java
-/home/gabriel/aplicacao-gestao/backend/src/main/java/br/com/casodeuso/crudregistro/RegistroDto.java
-/home/gabriel/aplicacao-gestao/backend/src/main/java/br/com/casodeuso/crudregistro/RespostaListarTodosProdutos.java
+/home/gabriel/aplicacao-gestao/backend/src/main/java/br/com/gestao/casodeuso/crudregistro/ParcelaDto.java
+/home/gabriel/aplicacao-gestao/backend/src/main/java/br/com/gestao/casodeuso/crudregistro/RegistroDto.java
+/home/gabriel/aplicacao-gestao/backend/src/main/java/br/com/gestao/casodeuso/crudregistro/RespostaListarTodosProdutos.java
 /home/gabriel/aplicacao-gestao/backend/src/main/java/br/com/gestao/model/Parcela.java
 /home/gabriel/aplicacao-gestao/backend/src/main/java/br/com/gestao/model/Registro.java
 /home/gabriel/aplicacao-gestao/backend/src/main/java/br/com/gestao/model/builder/ParcelaBuilder.java
@@ -11,4 +11,4 @@
 /home/gabriel/aplicacao-gestao/backend/src/main/java/br/com/gestao/resource/RegistroRepository.java
 /home/gabriel/aplicacao-gestao/backend/src/main/java/br/com/gestao/rest/Endpoint.java
 /home/gabriel/aplicacao-gestao/backend/src/main/java/br/com/gestao/service/RegistroService.java
-/home/gabriel/aplicacao-gestao/backend/src/main/java/br/com/validadores/ValidadorRequisicao.java
+/home/gabriel/aplicacao-gestao/backend/src/main/java/br/com/gestao/validadores/ValidadorRequisicao.java

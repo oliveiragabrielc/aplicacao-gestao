@@ -1,4 +1,4 @@
-package br.com.validadores;
+package br.com.gestao.validadores;
 
 import java.util.Set;
 

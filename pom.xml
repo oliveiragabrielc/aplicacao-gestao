@@ -69,6 +69,7 @@
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-hibernate-validator</artifactId>
         </dependency>
+        
         <!-- Dependencias de teste -->
         <dependency>
             <groupId>io.quarkus</groupId>

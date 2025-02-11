@@ -2,12 +2,13 @@ package br.com.gestao.rest;
 
 import java.util.List;
 
-import br.com.casodeuso.crudregistro.RegistroDto;
-import br.com.casodeuso.crudregistro.RespostaListarTodosProdutos;
+import br.com.gestao.casodeuso.crudregistro.RegistroDto;
+import br.com.gestao.casodeuso.crudregistro.RespostaListarTodosProdutos;
 import br.com.gestao.service.RegistroService;
 import io.netty.handler.codec.http.HttpResponseStatus;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.DefaultValue;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
@@ -18,6 +19,8 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+
+
 
 @Path("/registro")
 @Produces(MediaType.APPLICATION_JSON)
@@ -50,7 +53,7 @@ public class Endpoint {
     @PUT
     @Path("/alterar")
     public Response alterarRegistro(RegistroDto listaRegistro) {
-        service.alterarRegistro(listaRegistro);
+        service.alterar(listaRegistro);
         return Response.ok().build();
     }
 
@@ -61,10 +64,12 @@ public class Endpoint {
         return Response.status(HttpResponseStatus.CREATED.code()).build();
     }
 
-    // private RespostaListarTodosProdutos montarResposta() {
-    // List<RegistroDto> lista = service.recuperaTodos();
-    // return new RespostaListarTodosProdutos(lista);
-    // }
+    @DELETE
+    @Path("/delete/{ids}")
+    public Response deletar(@PathParam("ids") List<Integer> lista){
+        service.deletar(lista);
+        return Response.ok().build();
+    }
 
     public static class PaginatedResponse<T> {
         public Object conteudo;
