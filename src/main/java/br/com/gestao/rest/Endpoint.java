@@ -20,8 +20,6 @@ import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
-
-
 @Path("/registro")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
@@ -41,7 +39,21 @@ public class Endpoint {
         int totalPaginas = (int) Math.ceil((double) totalItems / tamanho);
         int fim = Math.min((pagina + 1) * tamanho, lista.size());
 
-        return Response.ok(new PaginatedResponse<>(new RespostaListarTodosProdutos(lista.subList(inicio, fim)), pagina, tamanho, totalPaginas, totalItems)).build();
+        return Response.ok(new PaginatedResponse<>(new RespostaListarTodosProdutos(lista.subList(inicio, fim)), pagina,
+                tamanho, totalPaginas, totalItems)).build();
+    }
+
+    @GET
+    @Path("/listarData/{dataInicial,dataFinal}")
+    public Response listarPeriodo(@QueryParam("dataInicial") String incial, @QueryParam("dataFinal") String dataFinal) {
+        return Response.ok().build();
+    }
+
+    @GET
+    @Path("/listarData/{mes}")
+    public Response listarPorReferencia(@QueryParam("mes") int mes) {
+        List<RegistroDto> lista = service.procurarPorMes(mes);
+        return Response.ok(lista).build();
     }
 
     @GET
@@ -66,7 +78,7 @@ public class Endpoint {
 
     @DELETE
     @Path("/delete/{ids}")
-    public Response deletar(@PathParam("ids") List<Integer> lista){
+    public Response deletar(@PathParam("ids") List<Integer> lista) {
         service.deletar(lista);
         return Response.ok().build();
     }

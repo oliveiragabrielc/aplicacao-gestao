@@ -5,7 +5,6 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 import br.com.gestao.casodeuso.crudregistro.RegistroDto;
-import br.com.gestao.model.Registro;
 import br.com.gestao.model.builder.RegistroBuilder;
 import br.com.gestao.resource.ParcelaRepository;
 import br.com.gestao.resource.RegistroRepository;
@@ -81,8 +80,19 @@ public class RegistroService {
 
             } catch (Exception e) {
                 // TODO: handle exception
+                e.printStackTrace();
             }
         });
+    }
+
+
+    public List<RegistroDto> procurarPorMes(int mes){
+        List<RegistroDto> resultado = recuperaTodos();
+        // System.out.println(resultado.get(0).dataRegistro().getMonthValue());
+        List<RegistroDto> filtro = resultado.stream().filter(pr -> mes == pr.dataRegistro().getMonthValue()).toList();
+        // System.out.println(filtro.size());
+        // System.out.println(resultado);
+        return filtro;
     }
 
     public void validarRequisicao(List<RegistroDto> list) {
