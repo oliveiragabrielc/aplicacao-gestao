@@ -1,0 +1,15 @@
+br/com/gestao/casodeuso/crudregistro/ParcelaDto.class
+br/com/gestao/model/Registro.class
+br/com/gestao/resource/RegistroRepository.class
+br/com/gestao/resource/ParcelaRepository.class
+br/com/gestao/resource/ParcelaJpaRepository.class
+br/com/gestao/rest/Endpoint.class
+br/com/gestao/service/RegistroService.class
+br/com/gestao/casodeuso/crudregistro/RespostaListarTodosProdutos.class
+br/com/gestao/casodeuso/crudregistro/RegistroDto.class
+br/com/gestao/model/builder/ParcelaBuilder.class
+br/com/gestao/rest/Endpoint$PaginatedResponse.class
+br/com/gestao/resource/RegistroJpaRepository.class
+br/com/gestao/model/builder/RegistroBuilder.class
+br/com/gestao/validadores/ValidadorRequisicao.class
+br/com/gestao/model/Parcela.class
